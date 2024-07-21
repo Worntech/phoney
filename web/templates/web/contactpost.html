@@ -1,0 +1,153 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html><html class="no-js" lang="zxx"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.svg">
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/LineIcons.3.0.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/tiny-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/glightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/contactus.css' %}">
+
+</head>
+
+<body>
+
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">Contact Us</h1>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <ul class="breadcrumb-nav">
+                        <li><a href="{% url 'home' %}"><i class="lni lni-home"></i> Home</a></li>
+                        <li><a href="{% url 'contactpost' %}">Contact Us</a></li>
+                        <li>Contact Us</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Start Item Details -->
+    <section class="item-details section">
+
+
+        <div class="container">
+            <div class="product-details-info">
+                <div class="single-block">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <div class="info-body custom-responsive-margin">
+                                <div class="container">
+                                    <div style="text-align:center">
+                                      <h2 class="contact">Contact Us</h2>
+                                      <p class="pcontact">Leave us message by wrting the message and contact information bellow:</p>
+                                    </div>
+                                    <div class="row">
+                                      {% comment %} <div class="column">
+                                        <img src="{% static 'web/images/shamba2.jpg' %}" style="width:100%">
+                                      </div> {% endcomment %}
+                                      <div class="column">
+                                        <form action="{% url 'contactpost' %}" method="POST">
+                                          {% csrf_token %}
+                                          {{contactpost.as_p}}
+                                          <div class="button">
+                                          <button class="btn">Submit</button>
+                                          </div>
+                                        </form>
+                                      </div>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <div class="info-body">
+                                <h2>Contact Information</h2><br><br>
+                                <ul class="normal-list">
+                                    <h4>
+                                        TEMA STREET, <br>
+                                        house no 03 Nyegezi, Mwanza <br>
+                                        Tanzania
+                                    </h4>
+                                </ul>
+                                <h4>Contact</h4>
+                                <ul class="normal-list">
+                                    <h4>
+                                        Phone: +255 769 400 559 <br>
+                                        Email: precioushoney2022@gmail.com
+                                    </h4>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Item Details -->
+
+    <!-- End Review Modal -->
+
+    <!-- Start Footer Area -->
+
+    <!--/ End Footer Area -->
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/tiny-slider.js"></script>
+    <script src="js/glightbox.min.js"></script>
+    <script src="js/main.js"></script>
+    <script type="text/javascript">
+        const current = document.getElementById("current");
+        const opacity = 0.6;
+        const imgs = document.querySelectorAll(".img");
+        imgs.forEach(img => {
+            img.addEventListener("click", (e) => {
+                //reset opacity
+                imgs.forEach(img => {
+                    img.style.opacity = 1;
+                });
+                current.src = e.target.src;
+                //adding class 
+                //current.classList.add("fade-in");
+                //opacity
+                e.target.style.opacity = opacity;
+            });
+        });
+    </script>
+
+
+</body></html>
+
+{% endblock %}
